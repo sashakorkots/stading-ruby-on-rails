@@ -2,6 +2,6 @@
 
 <% @questions.each do |question| %>
     <h2><%= question.title %></h1>
-    <time><%= question.created_at %></time>
     <p><%= question.body %></p>
+    <time><%= question.created_at %></time>
 <% end %>
