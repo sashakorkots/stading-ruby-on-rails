@@ -35,8 +35,9 @@ class QuestionsController < ApplicationController
         redirect_to questions_path
     end
     
-    
-    
+    def show
+        @question = Question.find_by id: params[:id]
+    end
 
     private
     
