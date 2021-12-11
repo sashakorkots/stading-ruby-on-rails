@@ -35,3 +35,19 @@
 		</div>
 	</div>
 <% end %> 
+
+<% @answers.each do |answer|%>
+	<div class="card mt-3">
+		<section class="card-body">
+			<p class="lead mt-3">
+				<%= answer.body %>
+				<br>
+			</p>
+			<time class="mt-4">
+				<small><%=answer.created_at %></small>
+				<br>
+			</time>
+			<%= link_to "Delete", question_answer_path(@question, answer), data: {method: :delete, confirm: "Are you sure?"}, class: "btn btn-danger btn-xs mt-3"%>
+		</section>
+	</div>
+<% end %>
