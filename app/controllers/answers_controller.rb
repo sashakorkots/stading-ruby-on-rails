@@ -13,6 +13,16 @@ class AnswersController < ApplicationController
     end
   end
 
+  def destroy
+    @answer = @question.answers.find_by id: params[:id]
+    if @answer .destroy
+      flash[:success] = "Question deleted"
+    else
+      flash[:danger] = "Something went wrong"
+    end
+    redirect_to question_path(@question)
+  end
+
   private 
 
   def answer_params
