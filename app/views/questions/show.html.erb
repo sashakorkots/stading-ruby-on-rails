@@ -24,7 +24,7 @@
 <%= render 'answers/form' %>
 
 <% @answers.each do |answer|%>
-	<div class="card mt-3">
+	<div class="card mt-3" id="answer-<%= answer.id %>">
 		<section class="card-body">
 			<p class="lead mt-3">
 				<%= answer.body %>
