@@ -1,14 +1,25 @@
 <%= provide :main_menu do %>
   <header class="p-3 bg-dark text-white">
     <div class=container>
-      <nav class="d-flex flex-wrap">
-        <ul class="nav">
+      <nav class="d-flex flex-wrap justify-content-between">
+        <ul class="nav col-12 col-lg-auto">
           <li><%= nav_tab 'Home', root_path,
                           class: "nav-link px-2 text-white",
                           current_page: current_page %></li>
           <li><%= nav_tab 'Questions', questions_path,
                           class: "nav-link px-2 text-white",
                           current_page: current_page %></li>
+        </ul>
+        <ul class="nav col-12 col-lg-auto">
+          <% if user_sign_in? %>
+            <li class="nav-link px-2 text-white">
+              <span><%= @current_user.name %></span>
+            </li>
+          <% else %>
+            <li><%= nav_tab 'Sign Up', new_user_path,
+                            class: "nav-link px-2 text-white",
+                            current_page: current_page %></li>
+          <% end %>
         </ul>
       </nav>
     </div>
