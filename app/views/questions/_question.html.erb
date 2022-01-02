@@ -4,7 +4,7 @@
 
     <section class="mt-4 card-text">
       <p>
-        <%= question.body %>
+        <%= truncate question.body, length: 150, omission: '...(continue)'  %>
       </p>
       <time><small><%= question.created_at %></small></time>
     </section>
